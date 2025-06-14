@@ -6,6 +6,9 @@
 
 ```
 datasets/
+    cell_images/
+        Parasitized/
+        Uninfected/
     malaria_dataset.py
 models/
     custom_resnet.py
@@ -40,33 +43,34 @@ python main.py
 ### ☝️ 도커 이미지 빌드
 
 ```
-docker build -t malaria-det-resnet .
+docker build -t malaria-resnet-classifier .
 ```
 
 ### ✌️ 컨테이너 실행
 
 ```
-docker run --rm malaria-det-resnet
+docker run --rm malaria-resnet-classifier
 ```
 
 ---
 
 ## 🔹 데이터셋
 
-CIFAR-10 
-CIFAR-10은 10개의 클래스(비행기, 자동차, 새, 고양이 등)에 대한 60,000장의 32x32 사이즈의 이미지로 구성된 데이터셋입니다.
+Malaria Cell Images Dataset
+Malaria Cell Images Dataset은 말라리아 감염 여부를 판별하기 위한 세포 이미지 데이터셋으로, 총 27,558장의 이미지로 구성되어있습니다. 각 이미지는 감염된 세포(Parasitized)와 비감염 세포(Uninfected)로 구분되어 있으며, 이진 분류 모델에 적합합니다.
 
-데이터셋은 별도의 준비 없이, 실행 시 `torchvision` 라이브러리를 통해 자동으로 다운로드됩니다.
+해당 작업물에는 `datasets/cell_images` 폴더에 **샘플 이미지**만 포함되어 있습니다.
+전체 데이터셋은 아래 Kaggle 링크를 통해 직접 다운로드해 주세요.
+🔗 https://www.kaggle.com/datasets/iarunava/cell-images-for-detecting-malaria
 
 ---
 
 ## 🔹 결과
 
-40회 에포크 학습 후, 정확도:
+20회 에포크 학습 후, 정확도:
 
 ```
-Validation Accuracy: 80.52% 
-Test Accuracy: 79.81%
+Test Accuracy: 96.21%
 ```
 
 예측 결과 예시:

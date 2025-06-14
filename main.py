@@ -16,9 +16,9 @@ from sklearn.model_selection import train_test_split
 
 
 unzip()
-filepath='./cell_image'
-parasitized=os.listdir('./cell_image/Parasitized/')
-uninfected=os.listdir('./cell_image/Uninfected/')
+filepath='./datasets/cell_images'
+parasitized=os.listdir('./datasets/cell_images/Parasitized/')
+uninfected=os.listdir('./datasets/cell_images/Uninfected/')
 parasitized=[os.path.join('Parasitized',filename) for filename in parasitized]
 uninfected=[os.path.join('Uninfected',filename) for filename in uninfected]
 allfiles=parasitized+uninfected
